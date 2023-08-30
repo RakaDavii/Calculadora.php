@@ -8,51 +8,70 @@
 <body>
     <h1>Calculadora</h1>
     <form action="index.php" method="get">
-        Operador 1:<input type="number" name="number">  
+        Operador 1:<input type="text" name="number">  
         <select name="operacao">
-            <option value="soma">soma</option>
-            <option value="subtracao">subtracao</option>
-            <option value="multiplicao">multiplicao</option>
-            <option value="divisao">divisao</option>
+            <option value="1">soma</option>
+            <option value="2">subtracao</option>
+            <option value="3">multiplicao</option>
+            <option value="4">divisao</option>
         </select>
-        Operador 2:<input type="number" name="number2">
-        <input type="submit" value="somar">
+        Operador 2:<input type="text" name="number2">
+        <input type="submit" value="Calcular">
     </form>
     <?php
-    $operacao = $_GET['operacao'];
+     
+     error_reporting(0);
+     $valor1 = $_GET["number"];
+     $valor2 = $_GET["number2"];
+     $oper = $_GET["operacao"];
+    
+    function soma($valor1,$valor2){
+        $resultado = $valor1 + $valor2;
 
-    switch($operacao) {
-        case "soma":
-        $n1 = $_GET['number'];
-        $n2 = $_GET['number2'];
-        $soma = $n1 + $n2;
-    
-        echo "A soma é:".$soma;
-        break;
-    case "subtracao":
-        $n1 = $_GET['number'];
-        $n2 = $_GET['number2'];
-        $subtracao = $n1 - $n2;
-    
-        echo "A soma é:".$subtracao;
-        break;
+        return $resultado;
+    }
+    function sub($valor1,$valor2){
+        $resultado = $valor1 - $valor2;
 
-    case "multiplicao":
-        $n1 = $_GET['number'];
-        $n2 = $_GET['number2'];
-        $multiplicao = $n1 * $n2;
-    
-        echo "A soma é:".$multiplicao;
-        break;
+        return $resultado;
+    }
+    function divisao($valor1,$valor2){
+        $resultado = $valor1 / $valor2;
 
-    case "divisao":
-        $n1 = $_GET['number'];
-        $n2 = $_GET['number2'];
-        $divisao = $n1 / $n2;
-    
-        echo "A soma é:".$divisao;
-        break;
-}       
+        return $resultado;
+    }
+    function multiplicacao($valor1,$valor2){
+        $resultado = $valor1 * $valor2;
+
+        return $resultado;
+    }
+    function resto($valor1,$valor2){
+        $resultado = $valor1 % $valor2;
+
+        return $resultado;
+    }
+
+
+    if ($oper == 1) {
+        $resultado = soma ($valor1,$valor2);
+
+        echo  $resultado; 
+
+    }elseif ($oper == 2) {
+        $resultado = sub ($valor1,$valor2);
+
+        echo $resultado;
+
+    }elseif ($oper == 3) {
+        $resultado = multiplicacao ($valor1,$valor2);
+
+        echo  $resultado;
+
+    }elseif ($oper == 4) {
+        $resultado = divisao ($valor1,$valor2);
+
+        echo  $resultado;
+    }
     ?>
 </body>
 </html>
