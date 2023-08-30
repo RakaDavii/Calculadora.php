@@ -10,10 +10,11 @@
     <form action="index.php" method="get">
         Operador 1:<input type="text" name="number">  
         <select name="operacao">
-            <option value="1">soma</option>
-            <option value="2">subtracao</option>
-            <option value="3">multiplicao</option>
-            <option value="4">divisao</option>
+            <option value="1">Soma</option>
+            <option value="2">Subtracao</option>
+            <option value="3">Multiplicao</option>
+            <option value="4">Divisao</option>
+            <option value="5">Resto</option>
         </select>
         Operador 2:<input type="text" name="number2">
         <input type="submit" value="Calcular">
@@ -69,6 +70,11 @@
 
     }elseif ($oper == 4) {
         $resultado = divisao ($valor1,$valor2);
+
+        echo  $resultado;
+
+    }elseif ($oper == 5) {
+        $resultado = resto ($valor1,$valor2);
 
         echo  $resultado;
     }
